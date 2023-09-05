@@ -1,0 +1,211 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-size: 18px;
+    font-family: 'Rubik', sans-serif;
+}
+
+:root {
+    --blue: hsl(246, 80%, 60%);
+    --light-red-work: hsl(15, 100%, 70%);
+    --soft-blue-play: hsl(195, 74%, 62%);
+    --light-red-study: hsl(348, 100%, 68%);
+    --lime-green-exercise: hsl(145, 58%, 55%);
+    --violet-social: hsl(264, 64%, 52%);
+    --soft-orange-self-care: #f1c65b;
+    --very-dark-blue: hsl(226, 43%, 10%);
+    --dark-blue: hsl(235, 46%, 20%);
+    --desaturated-blue: hsl(235, 45%, 61%);
+    --pale-Blue: hsl(236, 100%, 87%);
+    --white: hsl(0, 0%, 100%);
+    --black: hsl(0, 0%, 0%);
+}
+
+.main {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--very-dark-blue);
+}
+
+.main-grid {
+    min-height: inherit;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    inline-size: clamp(65rem, 70vw, 75rem);
+    margin-inline: auto;
+    place-content: center;
+    padding: 2rem 0;
+}
+
+
+
+/* === Section === */
+
+/* == General == */
+
+.card {
+    background: var(--dark-blue);
+    border-radius: 15px;
+    overflow: hidden;
+    color: var(--white);
+}
+
+.bg-card {
+    height: 30%;
+    background-image: url(../images/icon-work.svg);
+    background-repeat: no-repeat;
+    background-position: 90%;
+}
+
+
+.timer-card {
+    border-radius: 15px;
+    padding: 1.5rem;
+    background: inherit;
+    margin-top: -1rem;
+}
+
+.timer-card h2 {
+    font-size: 3rem;
+    color: inherit;
+    font-weight: 400;
+    letter-spacing: .3rem;
+    display: inline-block;
+    margin: 1.6rem 0 0;
+}
+
+.timer-card > span {
+    display: block;
+    margin-top: .5rem;
+}
+
+
+.timer-card h2::after {
+    content: "hrs";
+}
+
+.title span:first-of-type {
+    color: inherit;
+}
+
+.title span:last-of-type {
+    float: right;
+}
+
+
+
+/* == Profile ==*/
+
+.profile {
+    grid-row: 1 /span 2;
+    color: var(--white);
+}
+
+.personal-info {
+    background-color: var(--blue);
+    border-radius: inherit;
+    padding: 1.5rem;
+}
+
+
+.personal-info img {
+    height: 6.5rem;
+    width: auto;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    display: block;
+    
+}
+
+.personal-info h2 {
+    font-size: 2.4rem;
+    color: currentColor;
+    letter-spacing: .15rem;
+    font-weight: 400;
+    margin-top: 3rem;
+}
+
+.personal-info h2::before {
+    content: "Report for";
+    font-size: 1rem;
+    display: block;
+    color: var(--pale-Blue);
+    margin-bottom: .5rem;
+}
+
+.dashboard-nav li {
+    list-style: none;
+    margin-bottom: .5rem;
+}
+
+.dashboard-nav a {
+    text-decoration: none;
+    color: currentColor;
+}
+
+@media (max-width: 1100px) {
+
+    .main-grid {
+        grid-template-columns: repeat(2, 1fr);
+        inline-size: clamp(35rem, 70vw, 65rem);
+    }
+
+    .profile {
+        grid-column: 1/span 2;
+        grid-row: 1/auto;
+    }
+
+    .personal-info img {
+        height: clamp(4rem, 8vw, 6rem);
+        display: inline-block;
+    }
+    
+    .personal-info h2 {
+        font-size: clamp(1.5rem, 3.5vw, 2rem);
+        display: inline-block;
+        margin: -2rem 0 0 2rem;
+    }
+
+    .dashboard-nav {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+        padding: 0;
+    }
+
+    .timer-card h2 {
+        font-size: 1.6rem;
+        color: inherit;
+        font-weight: 400;
+        letter-spacing: .3rem;
+        display: inline-block;
+        margin-bottom: 2rem;
+    }
+    
+    .timer-card > span {
+        display: inline-block;
+        font-size: .7rem;
+        float: inline-end;
+    }
+}
+
+@media (max-width: 650px) {
+    .main-grid {
+        grid-template-columns: 1fr;
+        inline-size: clamp(20rem, 70vw, 35rem);
+    }
+
+    .profile {
+        grid-column: 1/auto;
+    }
+}
+
+@media (max-width: 589px) {
+    .personal-info h2 {
+        margin: 2rem 0 0 2rem;
+    }
+}
